@@ -1,0 +1,119 @@
+﻿{
+  "Scenario": "SentenceSimilarity",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Repos\\machine-learning-data-samples\\Supervised\\Sentence-similarity\\home-depot-sentence-similarity-small.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "id",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "product_uid",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "product_title",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "search_term",
+        "ColumnPurpose": "SourceSentence",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "relevanceTwo",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "relevance",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "product_description",
+        "ColumnPurpose": "ComparisonSentence",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalGPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "SentenceSimilarityRegression",
+        "Score": 0.14145138528687748,
+        "RuntimeInSeconds": 209.185,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "LabelColumnName": "relevance",
+            "Sentence1ColumnName": "search_term",
+            "Sentence2ColumnName": "product_description",
+            "ScoreColumnName": "Score",
+            "BatchSize": 32,
+            "MaxEpochs": 10,
+            "Architecture": "Roberta"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "SentenceSimilarityRegression"
+    },
+    "Schema": "e0",
+    "MetricName": "Pearson-correlation",
+    "ModelFilePath": "C:\\Repos\\mlnet-project-samples\\Sentence-similarity\\SentenceSimilarity.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 4,
+  "TrainingOption": {
+    "Version": 1,
+    "Type": "SentenceSimilarityTrainingOption",
+    "TrainingTime": 2147483647,
+    "LabelColumn": "relevance",
+    "SourceSentence": "search_term",
+    "ComparisonSentence": "product_description",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
