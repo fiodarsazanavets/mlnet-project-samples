@@ -1,0 +1,199 @@
+{
+  "Scenario": "Forecasting",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Repos\\machine-learning-data-samples\\Supervised\\Forecasting\\amazon-stock-prices.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Date",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Open",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "High",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Low",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Close",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "AdjClose",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Volume",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      }
+    ]
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 181.15609123980323,
+        "RuntimeInSeconds": 0.007,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 3,
+            "SeriesLength": 24,
+            "TrainSize": 5842,
+            "Horizon": 72,
+            "OutputColumnName": "AdjClose",
+            "InputColumnName": "AdjClose",
+            "ConfidenceLowerBoundColumn": "AdjClose_LB",
+            "ConfidenceUpperBoundColumn": "AdjClose_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 182.29810403805058,
+        "RuntimeInSeconds": 0.008,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 4,
+            "SeriesLength": 6,
+            "TrainSize": 5842,
+            "Horizon": 72,
+            "OutputColumnName": "AdjClose",
+            "InputColumnName": "AdjClose",
+            "ConfidenceLowerBoundColumn": "AdjClose_LB",
+            "ConfidenceUpperBoundColumn": "AdjClose_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 182.29810403805058,
+        "RuntimeInSeconds": 0.01,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 4,
+            "SeriesLength": 5,
+            "TrainSize": 5842,
+            "Horizon": 72,
+            "OutputColumnName": "AdjClose",
+            "InputColumnName": "AdjClose",
+            "ConfidenceLowerBoundColumn": "AdjClose_LB",
+            "ConfidenceUpperBoundColumn": "AdjClose_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 183.3612253744085,
+        "RuntimeInSeconds": 0.008,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 5,
+            "SeriesLength": 20,
+            "TrainSize": 5842,
+            "Horizon": 72,
+            "OutputColumnName": "AdjClose",
+            "InputColumnName": "AdjClose",
+            "ConfidenceLowerBoundColumn": "AdjClose_LB",
+            "ConfidenceUpperBoundColumn": "AdjClose_UB"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "ForecastBySsa",
+        "Score": 183.3612253744085,
+        "RuntimeInSeconds": 0.01,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "WindowSize": 5,
+            "SeriesLength": 12,
+            "TrainSize": 5842,
+            "Horizon": 72,
+            "OutputColumnName": "AdjClose",
+            "InputColumnName": "AdjClose",
+            "ConfidenceLowerBoundColumn": "AdjClose_LB",
+            "ConfidenceUpperBoundColumn": "AdjClose_UB"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ForecastBySsa"
+    },
+    "Schema": "e0",
+    "MetricName": "RMSE",
+    "ModelFilePath": "C:\\Repos\\machine-learning-data-samples\\Supervised\\Forecasting\\AmazonStockPredictions\\AmazonStockPredictions.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 4,
+  "TrainingOption": {
+    "Version": 2,
+    "Type": "ForecastingTrainingOption",
+    "TrainingTime": 100,
+    "UseCrossValidation": false,
+    "OptimizeMetric": "RMSE",
+    "Horizon": 72,
+    "TimeColumn": "Date",
+    "LabelColumn": "AdjClose",
+    "UseDefaultIndex": false,
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "TrainValidateSplitValidationOption",
+      "SplitRatio": 0.1
+    }
+  }
+}
