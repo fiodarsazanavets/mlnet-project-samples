@@ -27,13 +27,13 @@ internal static class MovieRecommender
     {
         switch (rating)
         {
-            case var _ when rating < 1:
+            case var _ when rating <= 1:
                 return "horrible";
-            case var _ when rating < 2:
+            case var _ when rating <= 2:
                 return "bad";
-            case var _ when rating < 3:
+            case var _ when rating <= 3:
                 return "average";
-            case var _ when rating < 4:
+            case var _ when rating <= 4:
                 return "good";
             default:
                 return "awesome";
