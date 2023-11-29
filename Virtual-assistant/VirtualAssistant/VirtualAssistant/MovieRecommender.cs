@@ -7,17 +7,17 @@ internal static class MovieRecommender
     public static void CheckIfMovieIsGood()
     {
         Console.WriteLine("What is your user identifier?");
-        var userId = float.Parse(Console.ReadLine());
+        float userId = float.Parse(Console.ReadLine() ?? string.Empty);
         Console.WriteLine("What is the identifier of the movie you are interested in?");
-        var movieId = float.Parse(Console.ReadLine());
+        float movieId = float.Parse(Console.ReadLine() ?? string.Empty);
 
-        var input = new ModelInput
+        ModelInput input = new()
         {
             UserId = userId,
             MovieId = movieId
         };
 
-        var prediction = Predict(input);
+        ModelOutput prediction = Predict(input);
 
         Console.WriteLine(
             $"You will probably find this movie to be {GetHumanReadableRating(prediction.Score)}");
@@ -25,18 +25,13 @@ internal static class MovieRecommender
 
     private static string GetHumanReadableRating(float rating)
     {
-        switch (rating)
+        return rating switch
         {
-            case var _ when rating <= 1:
-                return "horrible";
-            case var _ when rating <= 2:
-                return "bad";
-            case var _ when rating <= 3:
-                return "average";
-            case var _ when rating <= 4:
-                return "good";
-            default:
-                return "awesome";
-        }
+            <= 1 => "horrible",
+            <= 2 => "bad",
+            <= 3 => "average",
+            <= 4 => "good",
+            _ => "awesome",
+        };
     }
 }

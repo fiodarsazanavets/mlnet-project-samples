@@ -1,7 +1,7 @@
 ﻿using VirtualAssistant;
 
 Console.WriteLine("Welcome to the Virtual Assistant!");
-var continueRunning = true;
+bool continueRunning = true;
 
 while (continueRunning)
 {
@@ -10,7 +10,7 @@ while (continueRunning)
     Console.WriteLine("Type 'movies' to find out if a movie is likely to be good.");
     Console.WriteLine("Type 'stocks' to forecast Amazon stock prices.");
     Console.WriteLine("Type 'stop' to exit the app.");
-    var command = Console.ReadLine();
+    string? command = Console.ReadLine();
 
     switch (command)
     {

@@ -7,9 +7,9 @@ internal static class TechSupport
     public static void ClassifyProblem()
     {
         Console.WriteLine("Please provide the error title");
-        var title = Console.ReadLine();
+        string? title = Console.ReadLine();
         Console.WriteLine("Please provide the error description");
-        var description = Console.ReadLine();
+        string? description = Console.ReadLine();
 
         TechSupportIssues.ModelInput input = new TechSupportIssues.ModelInput()
         {
@@ -17,7 +17,7 @@ internal static class TechSupport
             Description = description,
         };
 
-        var prediction = TechSupportIssues.Predict(input);
+        TechSupportIssues.ModelOutput prediction = TechSupportIssues.Predict(input);
 
         Console.WriteLine($"The problem falls under the {prediction.PredictedLabel} category");
     }

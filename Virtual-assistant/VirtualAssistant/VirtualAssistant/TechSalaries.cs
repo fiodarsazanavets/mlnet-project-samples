@@ -7,15 +7,15 @@ internal static class TechSalaries
     public static void PredictSalary()
     {
         Console.WriteLine("Please specify your age");
-        var age = float.Parse(Console.ReadLine());
+        float age = float.Parse(Console.ReadLine() ?? string.Empty);
         Console.WriteLine("Please specify your experience in months");
-        var experienceInMonths = float.Parse(Console.ReadLine());
+        float experienceInMonths = float.Parse(Console.ReadLine() ?? string.Empty);
         Console.WriteLine("Please specify the job title");
-        var jobTitle = Console.ReadLine();
+        string? jobTitle = Console.ReadLine();
         Console.WriteLine("Please specify the department name");
-        var department = Console.ReadLine();
+        string? department = Console.ReadLine();
 
-        var input = new ModelInput
+        ModelInput input = new()
         {
             Age = age,
             TenureInOrgInMonths = experienceInMonths,
@@ -23,7 +23,7 @@ internal static class TechSalaries
             Department = department
         };
 
-        var prediction = Predict(input);
+        ModelOutput prediction = Predict(input);
 
         Console.WriteLine($"The expected salary is {prediction.Score}.");
     }
