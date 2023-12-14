@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieRecommendations", "Mov
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmazonStockPredictions", "AmazonStockPredictions\AmazonStockPredictions.csproj", "{22D4BFAC-63DF-4789-9C46-D9291788562C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorCategorization", "ErrorCategorization\ErrorCategorization.csproj", "{FC2EE436-8596-4BFB-BBF6-DEDCF0D8BF51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorCategorization", "ErrorCategorization\ErrorCategorization.csproj", "{FC2EE436-8596-4BFB-BBF6-DEDCF0D8BF51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnomalyDetection", "AnomalyDetection\AnomalyDetection.csproj", "{04E0504E-35B8-4101-BEFA-B6ED36711963}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{FC2EE436-8596-4BFB-BBF6-DEDCF0D8BF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC2EE436-8596-4BFB-BBF6-DEDCF0D8BF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC2EE436-8596-4BFB-BBF6-DEDCF0D8BF51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04E0504E-35B8-4101-BEFA-B6ED36711963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04E0504E-35B8-4101-BEFA-B6ED36711963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04E0504E-35B8-4101-BEFA-B6ED36711963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04E0504E-35B8-4101-BEFA-B6ED36711963}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AmazonStockPredictions\AmazonStockPredictions.csproj" />
+    <ProjectReference Include="..\AnomalyDetection\AnomalyDetection.csproj" />
     <ProjectReference Include="..\ErrorCategorization\ErrorCategorization.csproj" />
     <ProjectReference Include="..\MovieRecommendations\MovieRecommendations.csproj" />
     <ProjectReference Include="..\TechJobsSalaries\TechJobsSalaries.csproj" />

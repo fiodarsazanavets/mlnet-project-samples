@@ -10,6 +10,7 @@ while (continueRunning)
     Console.WriteLine("Type 'movies' to find out if a movie is likely to be good.");
     Console.WriteLine("Type 'stocks' to forecast Amazon stock prices.");
     Console.WriteLine("Type 'errors' to classify SDK errors.");
+    Console.WriteLine("Type 'anomalies' to check a time-series data for anomalies.");
     Console.WriteLine("Type 'stop' to exit the app.");
     string? command = Console.ReadLine();
 
@@ -29,6 +30,9 @@ while (continueRunning)
             break;
         case "errors":
             ErrorCategorizer.CategorizeErrors();
+            break;
+        case "anomalies":
+            AnomalyDetector.DetectAnomalies();
             break;
         case "stop":
             continueRunning = false;
