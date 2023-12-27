@@ -34,9 +34,9 @@ internal static class ErrorCategorizer
 
         Console.WriteLine("This cluster contains the following items:");
 
-        IList<Input> items = ClusterData.GetItemsInCluster(prediction.PredictedClusterId);
+        IList<ErrorData> items = ClusterData.GetItemsInCluster(prediction.PredictedClusterId);
 
-        foreach (Input item in items)
+        foreach (ErrorData item in items)
         {
             Console.WriteLine($"Error Code: {item.ErrorCode}; Error Message: {item.ErrorMessage}");
         }

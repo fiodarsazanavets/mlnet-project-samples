@@ -12,10 +12,14 @@ public class ErrorPatternDetector
 
         string featuresColumnName = "Features";
 
-        IEstimator<ITransformer> pipeline = mlContext.Transforms
-            .Concatenate(featuresColumnName,
-                "ErrorCode",
-                "ErrorMessage")
+        IEstimator<ITransformer> pipeline = 
+                mlContext.Transforms.Text.FeaturizeText(
+                    "ErrorCodeFeature", "ErrorCode")
+            .Append(mlContext.Transforms.Text.FeaturizeText(
+                    "ErrorMessageFeature", "ErrorMessage"))
+            .Append(mlContext.Transforms.Concatenate(featuresColumnName,
+                "ErrorCodeFeature",
+                "ErrorMessageFeature"))
             .Append(mlContext.Clustering.Trainers.KMeans(
                 featuresColumnName, numberOfClusters: 3));
 

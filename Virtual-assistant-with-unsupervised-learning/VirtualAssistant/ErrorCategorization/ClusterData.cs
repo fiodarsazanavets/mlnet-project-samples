@@ -2,9 +2,9 @@
 
 public static class ClusterData
 {
-    private static Dictionary<uint, IList<Input>> _clusters = [];
+    private static readonly Dictionary<uint, IList<ErrorData>> _clusters = [];
 
-    public static IList<Input> GetItemsInCluster(uint clusterId)
+    public static IList<ErrorData> GetItemsInCluster(uint clusterId)
     {
         return _clusters[clusterId];
     }
@@ -12,8 +12,12 @@ public static class ClusterData
     public static void AddItemToCluster(uint clusterId, Input item)
     {
         if (!_clusters.ContainsKey(clusterId))
-            _clusters[clusterId] = new List<Input>();
+            _clusters[clusterId] = new List<ErrorData>();
 
-        _clusters[clusterId].Add(item);
+        _clusters[clusterId].Add(new ErrorData
+        {
+            ErrorCode = item.ErrorCode,
+            ErrorMessage = item.ErrorMessage
+        });
     }
 }
