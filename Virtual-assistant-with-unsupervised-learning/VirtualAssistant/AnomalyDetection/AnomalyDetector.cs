@@ -24,7 +24,7 @@ public static class AnomalyDetector
         return period;
     }
 
-    private static void DetectAnomaly(MLContext mlContext, IDataView phoneCalls, int period)
+    private static void DetectAnomaly(MLContext mlContext, IDataView inputData, int period)
     {
         Console.WriteLine("Looking for the anomalies in the data.");
         SrCnnEntireAnomalyDetectorOptions options = new()
@@ -38,7 +38,7 @@ public static class AnomalyDetector
         IDataView outputDataView =
             mlContext
                 .AnomalyDetection.DetectEntireAnomalyBySrCnn(
-                    phoneCalls,
+                    inputData,
                     nameof(Output.Prediction),
                     nameof(InputData.Value),
                     options);
