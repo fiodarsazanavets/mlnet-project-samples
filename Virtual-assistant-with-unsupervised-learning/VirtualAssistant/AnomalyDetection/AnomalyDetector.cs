@@ -14,7 +14,7 @@ public static class AnomalyDetector
 
         int period = DetectIntervalPeriod(mlContext, dataView);
 
-        DetectAnomaly(mlContext, dataView, period);  
+        DetectAnomaly(inputFilePath, mlContext, dataView, period);  
     }
 
     private static int DetectIntervalPeriod(MLContext mlContext, IDataView data)
@@ -24,7 +24,7 @@ public static class AnomalyDetector
         return period;
     }
 
-    private static void DetectAnomaly(MLContext mlContext, IDataView inputData, int period)
+    private static void DetectAnomaly(string inputFilePath, MLContext mlContext, IDataView inputData, int period)
     {
         Console.WriteLine("Looking for the anomalies in the data.");
         SrCnnEntireAnomalyDetectorOptions options = new()
@@ -46,9 +46,13 @@ public static class AnomalyDetector
         IEnumerable<Output> predictions = mlContext.Data.CreateEnumerable<Output>(
             outputDataView, reuseRowObject: false);
 
-        Console.WriteLine("Index,Anomaly,ExpectedValue,UpperBoundary,LowerBoundary");
+        Console.WriteLine("Index,Anomaly,ExpectedValue,UpperBoundary,LowerBoundary");     
 
         int index = 0;
+
+        using StreamWriter outputFile = new(inputFilePath.Replace(".csv", "-output.csv"));
+        List<InputData> inputs = mlContext.Data.CreateEnumerable<InputData>(
+            inputData, reuseRowObject: false).ToList();
 
         foreach (Output p in predictions)
         {
@@ -61,6 +65,7 @@ public static class AnomalyDetector
             {
                 Console.WriteLine("{0},{1},{2},{3},{4}", index,
                     p.Prediction[0], p.Prediction[3], p.Prediction[5], p.Prediction[6]);
+                outputFile.WriteLine($"{inputs[index].Timestamp},{inputs[index].Value}");
             }
             ++index;
         }
