@@ -46,7 +46,7 @@ public static class AnomalyDetector
         IEnumerable<Output> predictions = mlContext.Data.CreateEnumerable<Output>(
             outputDataView, reuseRowObject: false);
 
-        Console.WriteLine("Index\tAnomaly\tExpectedValue\tUpperBoundary\tLowerBoundary");
+        Console.WriteLine("Index,Anomaly,ExpectedValue,UpperBoundary,LowerBoundary");
 
         int index = 0;
 
@@ -54,7 +54,7 @@ public static class AnomalyDetector
         {
             if (p.Prediction[0] == 1)
             {
-                Console.WriteLine("{0},{1},{2},{3},{4}  <-- anomaly detected!", index,
+                Console.WriteLine("{0},{1},{2},{3},{4}\t<-- anomaly detected!", index,
                     p.Prediction[0], p.Prediction[3], p.Prediction[5], p.Prediction[6]);
             }
             else
