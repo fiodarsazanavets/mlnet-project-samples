@@ -3,7 +3,7 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.ML" Version="3.0.0" />
+    <PackageReference Include="Microsoft.ML" Version="3.0.1" />
   </ItemGroup>
   <ItemGroup Label="TechJobsSalaries">
     <None Include="TechJobsSalaries.mlnet">
