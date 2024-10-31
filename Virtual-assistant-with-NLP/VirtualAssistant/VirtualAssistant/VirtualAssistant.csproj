@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AmazonStockPredictions\AmazonStockPredictions.csproj" />
+    <ProjectReference Include="..\AnomalyDetection\AnomalyDetection.csproj" />
+    <ProjectReference Include="..\ErrorCategorization\ErrorCategorization.csproj" />
+    <ProjectReference Include="..\MovieRecommendations\MovieRecommendations.csproj" />
+    <ProjectReference Include="..\SentenceSimilarity\SentenceSimilarity.csproj" />
+    <ProjectReference Include="..\TechJobsSalaries\TechJobsSalaries.csproj" />
+    <ProjectReference Include="..\TechSupportIssues\TechSupportIssues.csproj" />
+    <ProjectReference Include="..\TextClassification\TextClassification.csproj" />
+  </ItemGroup>
+
+</Project>

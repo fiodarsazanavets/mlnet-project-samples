@@ -1,0 +1,93 @@
+﻿{
+  "Scenario": "SentenceSimilarity",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Repos\\machine-learning-data-samples\\Supervised\\Sentence-similarity\\sentence-similarity-dataset.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Sentence1",
+        "ColumnPurpose": "SourceSentence",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Sentence2",
+        "ColumnPurpose": "ComparisonSentence",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Similarity",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "SentenceSimilarityRegression",
+        "Score": 0.99991693932982506,
+        "RuntimeInSeconds": 242.477,
+        "Parameter": {
+          "_SCHEMA_": "e0",
+          "e0": {
+            "LabelColumnName": "Similarity",
+            "Sentence1ColumnName": "Sentence1",
+            "Sentence2ColumnName": "Sentence2",
+            "ScoreColumnName": "Score",
+            "BatchSize": 32,
+            "MaxEpochs": 10,
+            "Architecture": "Roberta"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "SentenceSimilarityRegression"
+    },
+    "Schema": "e0",
+    "MetricName": "Pearson-correlation",
+    "ModelFilePath": "C:\\Repos\\mlnet-project-samples\\Virtual-assistant-with-NLP\\VirtualAssistant\\SentenceSimilarity\\SentenceSimilarity.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 1,
+    "Type": "SentenceSimilarityTrainingOption",
+    "TrainingTime": 10,
+    "LabelColumn": "Similarity",
+    "SourceSentence": "Sentence1",
+    "ComparisonSentence": "Sentence2",
+    "Epoch": 10,
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}
