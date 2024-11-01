@@ -26,8 +26,6 @@ try
 
     using TransformerChain<KeyToValueMappingTransformer> transformer = estimator.Fit(dataView);
 
-    DataViewSchema transformerSchema = transformer.GetOutputSchema(dataView.Schema);
-
     string sentence = "Alice and Bob visited Paris in France and met with Microsoft";
     TokenizerResult Encoded = TokenizationHelper.Tokenize(sentence);
 
