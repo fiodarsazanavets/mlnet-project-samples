@@ -10,7 +10,7 @@ public static class LabelsHelper
         new Label { Key = "CITY" },         // Cities
         new Label { Key = "COUNTRY" },      // Countries
         new Label { Key = "CONTINENT" },    // Continents
-        new Label { Key = "LOC" },          // Geographic features
+        new Label { Key = "LOCATION" },     // Geographic features
         new Label { Key = "PRODUCT" },      // Objects
         new Label { Key = "EVENT" },        // Events
         new Label { Key = "WORK_OF_ART" },  // Works of art

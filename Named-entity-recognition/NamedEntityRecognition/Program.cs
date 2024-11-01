@@ -16,13 +16,7 @@ try
     IDataView labels = context.Data.LoadFromEnumerable(LabelsHelper.GetLabels());
 
     IDataView dataView = context.Data.LoadFromEnumerable(
-        new List<Input>([
-            new Input()
-            {   
-                Sentence = "Alice and Bob live in the USA",
-                Label = [ "PERSON", "0", "PERSON", "0", "0", "0", "COUNTRY" ]
-            }
-        ]));
+        TrainingDataProcessor.LoadDataFromFile());
 
     EstimatorChain<ITransformer> chain = new();
 
@@ -34,7 +28,7 @@ try
 
     DataViewSchema transformerSchema = transformer.GetOutputSchema(dataView.Schema);
 
-    string sentence = "Alice and Bob live in the USA";
+    string sentence = "Alice and Bob visited Paris in France and met with Microsoft";
     TokenizerResult Encoded = TokenizationHelper.Tokenize(sentence);
 
     PredictionEngine<Input, Output> engine = context.Model.CreatePredictionEngine<Input, Output>(transformer);
