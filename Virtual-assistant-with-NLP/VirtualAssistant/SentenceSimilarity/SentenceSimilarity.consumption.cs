@@ -2,7 +2,9 @@
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using System;
+using System.Linq;
 using System.IO;
+using System.Collections.Generic;
 namespace SentenceSimilarity
 {
     public partial class SentenceSimilarity
@@ -14,16 +16,16 @@ namespace SentenceSimilarity
         public class ModelInput
         {
             [LoadColumn(0)]
-            [ColumnName(@"Sentence1")]
+            [ColumnName(@"sentence1")]
             public string Sentence1 { get; set; }
 
             [LoadColumn(1)]
-            [ColumnName(@"Sentence2")]
+            [ColumnName(@"sentence2")]
             public string Sentence2 { get; set; }
 
             [LoadColumn(2)]
-            [ColumnName(@"Similarity")]
-            public float Similarity { get; set; }
+            [ColumnName(@"similarity_score")]
+            public float SimilarityScore { get; set; }
 
         }
 
@@ -35,14 +37,14 @@ namespace SentenceSimilarity
         #region model output class
         public class ModelOutput
         {
-            [ColumnName(@"Sentence1")]
+            [ColumnName(@"sentence1")]
             public string Sentence1 { get; set; }
 
-            [ColumnName(@"Sentence2")]
+            [ColumnName(@"sentence2")]
             public string Sentence2 { get; set; }
 
-            [ColumnName(@"Similarity")]
-            public float Similarity { get; set; }
+            [ColumnName(@"similarity_score")]
+            public float Similarity_score { get; set; }
 
             [ColumnName(@"Score")]
             public float Score { get; set; }
@@ -59,6 +61,8 @@ namespace SentenceSimilarity
         private static PredictionEngine<ModelInput, ModelOutput> CreatePredictEngine()
         {
             var mlContext = new MLContext();
+            mlContext.GpuDeviceId = 0;
+            mlContext.FallbackToCpu = false;
             ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var _);
             return mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
         }

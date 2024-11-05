@@ -6,15 +6,15 @@
     "ReadMultiLines": false,
     "KeepDiacritics": false,
     "KeepPunctuations": false,
-    "AllowQuoting": false,
+    "AllowQuoting": true,
     "Type": "TabularFile",
-    "FilePath": "C:\\Repos\\machine-learning-data-samples\\Supervised\\Sentence-similarity\\sentence-similarity-dataset.csv",
+    "FilePath": "C:\\Repos\\machine-learning-data-samples\\Supervised\\Sentence-similarity\\synthetic-sentence-similarity-dataset.csv",
     "Delimiter": ",",
     "DecimalMarker": ".",
     "HasHeader": true,
     "ColumnProperties": [
       {
-        "ColumnName": "Sentence1",
+        "ColumnName": "sentence1",
         "ColumnPurpose": "SourceSentence",
         "ColumnDataFormat": "String",
         "IsCategorical": false,
@@ -22,7 +22,7 @@
         "Version": 5
       },
       {
-        "ColumnName": "Sentence2",
+        "ColumnName": "sentence2",
         "ColumnPurpose": "ComparisonSentence",
         "ColumnDataFormat": "String",
         "IsCategorical": false,
@@ -30,17 +30,17 @@
         "Version": 5
       },
       {
-        "ColumnName": "Similarity",
+        "ColumnName": "similarity_score",
         "ColumnPurpose": "Label",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 5
       }
     ]
   },
   "Environment": {
-    "Type": "LocalCPU",
+    "Type": "LocalGPU",
     "Version": 1
   },
   "RunHistory": {
@@ -51,14 +51,14 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "SentenceSimilarityRegression",
-        "Score": 0.99991693932982506,
-        "RuntimeInSeconds": 242.477,
+        "Score": 0.83438838876768551,
+        "RuntimeInSeconds": 24.512,
         "Parameter": {
           "_SCHEMA_": "e0",
           "e0": {
-            "LabelColumnName": "Similarity",
-            "Sentence1ColumnName": "Sentence1",
-            "Sentence2ColumnName": "Sentence2",
+            "LabelColumnName": "similarity_score",
+            "Sentence1ColumnName": "sentence1",
+            "Sentence2ColumnName": "sentence2",
             "ScoreColumnName": "Score",
             "BatchSize": 32,
             "MaxEpochs": 10,
@@ -80,9 +80,9 @@
     "Version": 1,
     "Type": "SentenceSimilarityTrainingOption",
     "TrainingTime": 10,
-    "LabelColumn": "Similarity",
-    "SourceSentence": "Sentence1",
-    "ComparisonSentence": "Sentence2",
+    "LabelColumn": "similarity_score",
+    "SourceSentence": "sentence1",
+    "ComparisonSentence": "sentence2",
     "Epoch": 10,
     "ValidationOption": {
       "Version": 0,
