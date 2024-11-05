@@ -44,7 +44,7 @@ namespace SentenceSimilarity
             public string Sentence2 { get; set; }
 
             [ColumnName(@"similarity_score")]
-            public float Similarity_score { get; set; }
+            public float SimilarityScore { get; set; }
 
             [ColumnName(@"Score")]
             public float Score { get; set; }
