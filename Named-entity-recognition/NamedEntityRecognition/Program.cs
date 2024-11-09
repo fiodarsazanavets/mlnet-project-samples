@@ -27,8 +27,7 @@ try
     using TransformerChain<KeyToValueMappingTransformer> transformer = estimator.Fit(dataView);
 
     string sentence = "Alice and Bob visited Paris in France and met with Microsoft";
-    TokenizerResult Encoded = TokenizationHelper.Tokenize(sentence);
-
+    
     PredictionEngine<Input, Output> engine = context.Model.CreatePredictionEngine<Input, Output>(transformer);
     Output predictions = engine.Predict(new Input { Sentence = sentence });
 
