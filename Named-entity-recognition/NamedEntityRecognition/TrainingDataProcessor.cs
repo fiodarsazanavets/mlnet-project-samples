@@ -11,10 +11,7 @@ public static class TrainingDataProcessor
         Console.WriteLine("Please provide the path to the input file.");
         string inputFilePath = Console.ReadLine() ?? string.Empty;
 
-        if (string.IsNullOrWhiteSpace(inputFilePath))
-        {
-            throw new ArgumentException("Cannot");
-        }
+        ArgumentException.ThrowIfNullOrWhiteSpace(inputFilePath);
 
         if (!File.Exists(inputFilePath))
         {
@@ -41,7 +38,7 @@ public static class TrainingDataProcessor
 
                 var labels = labelString?
                     .Trim([ '[', ']', '"' ])
-                    .Split(new[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    .Split([',', ' '], StringSplitOptions.RemoveEmptyEntries);
 
                 for (int i = 0; i < labels?.Length; i++)
                 {

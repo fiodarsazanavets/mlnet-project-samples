@@ -16,15 +16,15 @@ namespace SentenceSimilarity
         public class ModelInput
         {
             [LoadColumn(0)]
-            [ColumnName(@"sentence1")]
+            [ColumnName("sentence1")]
             public string Sentence1 { get; set; }
 
             [LoadColumn(1)]
-            [ColumnName(@"sentence2")]
+            [ColumnName("sentence2")]
             public string Sentence2 { get; set; }
 
             [LoadColumn(2)]
-            [ColumnName(@"similarity_score")]
+            [ColumnName("similarity_score")]
             public float SimilarityScore { get; set; }
 
         }
@@ -37,30 +37,30 @@ namespace SentenceSimilarity
         #region model output class
         public class ModelOutput
         {
-            [ColumnName(@"sentence1")]
+            [ColumnName("sentence1")]
             public string Sentence1 { get; set; }
 
-            [ColumnName(@"sentence2")]
+            [ColumnName("sentence2")]
             public string Sentence2 { get; set; }
 
-            [ColumnName(@"similarity_score")]
+            [ColumnName("similarity_score")]
             public float SimilarityScore { get; set; }
 
-            [ColumnName(@"Score")]
+            [ColumnName("Score")]
             public float Score { get; set; }
 
         }
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("SentenceSimilarity.mlnet");
+        private static readonly string MLNetModelPath = Path.GetFullPath("SentenceSimilarity.mlnet");
 
-        public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
-
+        public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine =
+            new Lazy<PredictionEngine<ModelInput, ModelOutput>>(CreatePredictEngine, true);
 
         private static PredictionEngine<ModelInput, ModelOutput> CreatePredictEngine()
         {
-            var mlContext = new MLContext();
+            MLContext mlContext = new();
             mlContext.GpuDeviceId = 0;
             mlContext.FallbackToCpu = false;
             ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var _);
