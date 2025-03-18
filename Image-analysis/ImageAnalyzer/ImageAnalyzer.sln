@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseItemClassifier", "Hous
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectDetection", "ObjectDetector\ObjectDetection.csproj", "{6FFEFAEF-D1D8-1C3F-9008-745435C80E8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TensorFlowImageClassifier", "TensorFlowImageClassifier\TensorFlowImageClassifier.csproj", "{1F18F46C-F073-4669-82A6-33D0EB081CA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6FFEFAEF-D1D8-1C3F-9008-745435C80E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FFEFAEF-D1D8-1C3F-9008-745435C80E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FFEFAEF-D1D8-1C3F-9008-745435C80E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F18F46C-F073-4669-82A6-33D0EB081CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F18F46C-F073-4669-82A6-33D0EB081CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F18F46C-F073-4669-82A6-33D0EB081CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F18F46C-F073-4669-82A6-33D0EB081CA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
