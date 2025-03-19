@@ -22,7 +22,7 @@ if (predictionResult.PredictedBoundingBoxes == null)
     return;
 }
 
-Console.WriteLine($"The most prominent object on the image is {predictionResult.PredictedLabel}");
+Console.WriteLine($"The most prominent object on the image is {predictionResult.PredictedLabel[0]}");
 
 var boxes =
     predictionResult.PredictedBoundingBoxes.Chunk(4)
