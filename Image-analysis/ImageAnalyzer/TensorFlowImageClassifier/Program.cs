@@ -6,7 +6,6 @@ string baseAssetsDirectory = "C:\\Temp\\ML.NET\\Data\\assets\\";
 string imagesFolder = $"{baseAssetsDirectory}images";
 string trainTagsTsv = $"{baseAssetsDirectory}images\\tags.tsv";
 string testTagsTsv = $"{baseAssetsDirectory}images\\test-tags.tsv";
-string predictSingleImage = $"{baseAssetsDirectory}images\\toaster3.jpg";
 string inceptionTensorFlowModel = $"{baseAssetsDirectory}inception\\tensorflow_inception_graph.pb";
 
 var mlContext = new MLContext();
@@ -60,9 +59,12 @@ foreach (var imagePrediction in imagePredictionData)
     Console.WriteLine($"Image {Path.GetFileName(imagePrediction.ImagePath)} recognized as {imagePrediction.PredictedLabelValue} with confidence score of {imagePrediction.Score?.Max()}");
 }
 
+Console.WriteLine("Please specify the path to an image file to classify");
+string imagePath = Console.ReadLine()!;
+
 var imageData = new InputData()
 {
-    ImagePath = predictSingleImage
+    ImagePath = imagePath
 };
 
 Console.WriteLine("Making a prediction");
