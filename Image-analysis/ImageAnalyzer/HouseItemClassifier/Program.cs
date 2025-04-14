@@ -5,20 +5,20 @@ using static HouseItemClassifier.ConsoleApp.HouseItemClassifier;
 Console.WriteLine("Please specify the path to an image file to classify");
 string imagePath = Console.ReadLine();
 
-byte[] imageBytes = File.ReadAllBytes(imagePath);
+byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
 
 ModelInput imageToClassify = new()
 {
     ImageSource = imageBytes,
 };
 
-Console.WriteLine(string.Empty);
+Console.WriteLine();
 Console.WriteLine("Predicted label:");
 
 var prediction = Predict(imageToClassify);
 
 Console.WriteLine(prediction.PredictedLabel);
-Console.WriteLine(string.Empty);
+Console.WriteLine();
 
 Console.WriteLine("All predicted label scores:");
 var sortedScoresWithLabel = PredictAllLabels(imageToClassify);
