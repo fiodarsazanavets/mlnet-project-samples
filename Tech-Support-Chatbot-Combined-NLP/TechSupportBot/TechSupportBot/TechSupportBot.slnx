@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TechSupportBot.Console/TechSupportBot.Console.csproj" />
+  <Project Path="TechSupportBot.Core/TechSupportBot.Core.csproj" />
+</Solution>
